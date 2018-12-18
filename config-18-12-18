@@ -24,9 +24,17 @@ margin-bottom = 5
 screenchange-reload = true
 
 [bar/bottom]
-modules-left = 
+modules-left = xkeyboard battery
 modules-center = eth temperature
 modules-right = powermenu
+
+font-0 = hack:pixelsize=10;1
+font-1 = unifont:size=4:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=8;0
+font-3 = FontAwesome:size=11;-1
+
+border-top-size = 5
+border-top-color =  #141414
 
 background = #2E2E2E
 foreground = ${colors.foreground}
@@ -55,17 +63,17 @@ overline-color = #f00
 underline-size = 0
 underline-color = #00f
 
-border-bottom-size = 1
-border-bottom-color = #0088CC
+border-bottom-size = 5
+border-bottom-color =  #141414
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=12;1
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
+font-0 = hack:pixelsize=10;1
+font-1 = unifont:size=4:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=8;0
 font-3 = FontAwesome:size=11;-1
 
 modules-left = menu i3 xwindow
@@ -73,7 +81,7 @@ modules-center =
 modules-right = memory date volume
 
 tray-position = right
-tray-padding = 0
+tray-padding = 1
 ;tray-transparent = true
 
 ;wm-restack = i3
@@ -83,11 +91,52 @@ scroll-down = i3wm-wsprev
 
 bottom = false
 
+[module/battery]
+type = internal/battery
+
+full-at = 96
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+time-format = %H:%M
+
+label-charging = Battery Charging: %percentage%%
+label-discharging = Battery Discharging: %percentage%%
+label-full = Battery Full: %percentage%%
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = #43f0cb
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = #f0a143
+
+format-full-foreground = #50f043
+
+format-charging-prefix = " "
+format-discharging-prefix = " "
+format-full-prefix = " "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
 [module/xwindow]
 type = internal/xwindow
 ;label = %title:0:40:...%
 ;label = %{o#503896 u#503896 +o +u B#301674}  %title:0:40:...%  %{B- -o -u}
-label = %title:0:70:...%  %{B- -o -u}
+label = %title:0:40:...%  %{B- -o -u}
 
 [module/xtitle]
 type = custom/script
